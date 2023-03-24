@@ -21,7 +21,7 @@ public:
         bool isLeftToRight = true;
 
         while (!q.empty()) {
-      const int size = q.size();
+       int size = q.size();
       vector<int> currLevel(size);
       for (int i = 0; i < size; ++i) {
         TreeNode*node = q.front();
