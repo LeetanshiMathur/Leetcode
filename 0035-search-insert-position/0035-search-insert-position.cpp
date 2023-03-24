@@ -15,23 +15,6 @@ public:
                  end = mid-1;
         }
         return end+1;
-    //     int l = 0 , r = (int)nums.size() - 1 , mid , ans = -1;
-    // while(l <= r)
-    // {
-    //     mid = l + (r - l) / 2;
-    //     if(nums[mid] == target)
-    //         return mid;
-    //     if(nums[mid] < target)
-    //     {
-    //         l = mid + 1;
-    //         ans = mid + 1;
-    //     }
-    //     else
-    //     {
-    //         ans = mid;
-    //         r = mid - 1;
-    //     }
-    // }
-    // return ans;
+  
     }
 };
