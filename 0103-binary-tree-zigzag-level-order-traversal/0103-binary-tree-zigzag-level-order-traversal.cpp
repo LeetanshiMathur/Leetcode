@@ -18,23 +18,28 @@ public:
    
         queue<TreeNode*>q;
         q.push(root);
-        bool isLeftToRight = true;
-
+        // bool isLeftToRight = true;
+       int count=1;
         while (!q.empty()) {
+           
        int size = q.size();
-      vector<int> currLevel(size);
-      for (int i = 0; i < size; ++i) {
+      vector<int> currLevel;
+      for (int i = 0; i < size; i++) {
         TreeNode*node = q.front();
         q.pop();
-        const int index = isLeftToRight ? i : size - i - 1;
-        currLevel[index] = node->val;
+        // const int index = isLeftToRight ? i : size - i - 1;
+        // currLevel[index] = node->val;
         if (node->left)
           q.push(node->left);
         if (node->right)
           q.push(node->right);
+          currLevel.push_back(node->val);
       }
+            if(count % 2 == 0)
+            reverse(currLevel.begin() , currLevel.end());
       result.push_back(currLevel);
-      isLeftToRight = !isLeftToRight;
+             count++;
+      // isLeftToRight = !isLeftToRight;
     }
 
     return result;
