@@ -1,18 +1,20 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if(x < 0) return false;
-        int num = x;
-        long sum = 0;
-        bool ans;
-        while(x>0){
-            int r = x %10;
-            sum = sum*10 + r;
-            x = x/10;
+        string s = to_string(x);
+        int i =0,j = s.size()-1;
+        while(i<j)
+        {
+            if(s[i]!=s[j])
+            {
+                return false;
+            }
+            else
+            {
+                i++;
+                j--;
+            }
         }
-        if(sum == num) ans = true;
-        else 
-            ans = false;
-        return ans;
+        return true;
     }
 };
