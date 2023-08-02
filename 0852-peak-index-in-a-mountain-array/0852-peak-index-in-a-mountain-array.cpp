@@ -16,14 +16,14 @@ public:
            if(arr[i]>arr[i-1]){
                i--;
            }
-           flag1 = 1;
+          if(i==1) flag1 = 1;
        }
         i = idx;
         while(i<arr.size()-1){
             if(arr[i]>arr[i+1]){
                 i++;
             }
-            flag2 = 1;
+           if(i==arr.size()-2) flag2 = 1;
         }
         if(flag1 == 1 && flag2 == 1){
             return idx;
