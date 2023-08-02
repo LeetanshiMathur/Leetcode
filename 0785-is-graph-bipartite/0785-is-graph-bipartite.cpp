@@ -1,23 +1,31 @@
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
-        int len = graph.size();
-        stack<int> s;
-        vector<int> vis(len);
-        for (int i = 0; i < len; i++) {
-            if (vis[i] > 0) continue;
-            vis[i] = 1;
-            s.push(i);
-            while (s.size() > 0) {
-                int curr = s.top();
-                s.pop();
-                vector<int> edges = graph[curr];
-                for (int next:edges)
-                    if (vis[next] == 0) {
-                        vis[next] = vis[curr] ^ 3;
-                        s.push(next);
-                    } else if (vis[curr] == vis[next]) return false;
+        int V = graph.size();
+       queue<int>q;
+        // q.push(0);
+        int color[V];
+        for(int i=0; i<V; i++)color[i]=-1;
+//         color[0] = 0;
+        
+        for (int startNode = 0; startNode < V; startNode++) {
+        if (color[startNode] == -1) {
+            q.push(startNode);
+            color[startNode] = 0;
+             while(!q.empty()){
+            int node = q.front();
+            q.pop();
+            for(auto it: graph[node]){
+                if(color[it] == -1){
+                    color[it] = !color[node];
+                    q.push(it);
+                }
+                else if(color[it] == color[node]){
+                    return false;
+                }
             }
+        }
+        }
         }
         return true;
     }
